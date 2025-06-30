@@ -45,7 +45,7 @@ class _UmeeAppState extends State<MyApp> {
           backgroundColor: const Color(0x2A2A2A),
           currentIndex: _selectedIndex,
           onTap: _onTabTapped,
-          selectedItemColor: Colors.yellow,
+          selectedItemColor: Colors.purple,
           unselectedItemColor: Colors.grey,
           items: const [
             BottomNavigationBarItem(
