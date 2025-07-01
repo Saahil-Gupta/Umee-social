@@ -1,19 +1,61 @@
 import 'package:flutter/material.dart';
+import '../models/user_model.dart';
+import 'chat_detail_screen.dart';
+import '../data/match_data.dart';
 
 class ChatScreen extends StatelessWidget {
+    const ChatScreen({super.key});
+
     @override
     Widget build(BuildContext context) {
+        // Show only the users you’ve swiped right on
+        final List<UserProfile> matches = matchedUsers;
+
+        // If you haven’t matched with anyone yet
+        if (matches.isEmpty) {
+            return Scaffold(
+                appBar: AppBar(title: const Text('Chats')),
+                body: const Center(
+                    child: Text(
+                        'No matches yet!\nSwipe to find friends.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                ),
+            );
+        }
+
+        // Otherwise, list out your matches
         return Scaffold(
-        appBar: AppBar(
-            title: Text("Chat"),
-            centerTitle: true,
-        ),
-        body: Center(
-            child: Text(
-                "Chat Screen",
-                style: TextStyle(fontSize: 24, color: Colors.yellow[700]),
+            appBar: AppBar(title: const Text('Chats')),
+            body: ListView.separated(
+                itemCount: matches.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (context, i) {
+                    final user = matches[i];
+                    return ListTile(
+                        leading: CircleAvatar(
+                            backgroundImage: NetworkImage(user.imageUrl),
+                        ),
+                        title: Text(user.name,
+                        style: TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.bold,),),
+                        subtitle: Text(user.bio, maxLines: 1, overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.grey[200],
+                        ),
+                        ),
+                        onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => ChatDetailScreen(user: user),
+                                ),
+                            );
+                        },
+                    );
+                },
             ),
-        )
         );
     }
 }
