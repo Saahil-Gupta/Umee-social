@@ -14,7 +14,12 @@ class ChatScreen extends StatelessWidget {
         // If you haven’t matched with anyone yet
         if (matches.isEmpty) {
             return Scaffold(
-                appBar: AppBar(title: const Text('Chats')),
+                appBar: AppBar(title: const Text('Chats',
+                    style: TextStyle(color: Colors.yellow),
+                ),
+                    centerTitle: true,
+                    backgroundColor: Colors.black,
+                ),
                 body: const Center(
                     child: Text(
                         'No matches yet!\nSwipe to find friends.',
@@ -30,7 +35,11 @@ class ChatScreen extends StatelessWidget {
             appBar: AppBar(title: const Text('Chats'), centerTitle: true,),
             body: ListView.separated(
                 itemCount: matches.length,
-                separatorBuilder: (_, __) => const Divider(height: 1),
+                separatorBuilder: (_, __) => const Divider(
+                    color: Colors.white54,
+                    height: 1,
+                    thickness: 1,
+                ),
                 itemBuilder: (context, i) {
                     final user = matches[i];
                     return ListTile(

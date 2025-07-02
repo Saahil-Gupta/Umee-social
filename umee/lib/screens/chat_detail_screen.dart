@@ -70,7 +70,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                     margin: const EdgeInsets.symmetric(vertical: 4),
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: isMe ? Colors.blue[200] : Colors.grey[300],
+                      color: isMe ? Colors.blue[200] : Colors.grey[400],
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(m['text']!,
@@ -87,7 +87,8 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.attach_file),
+                  icon: const Icon(Icons.attach_file,
+                  color: Colors.white,),
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Attachment coming soon!')),
@@ -99,14 +100,16 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                     controller: _controller,
                     decoration: InputDecoration.collapsed(
                       hintText: 'Type a message',
+                      hintStyle: TextStyle(color: Colors.white),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Colors.black,
                     ),
                     onSubmitted: (_) => _send(),
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.send),
+                  icon: const Icon(Icons.send,
+                  color: Colors.white,),
                   onPressed: _send,
                 ),
               ],

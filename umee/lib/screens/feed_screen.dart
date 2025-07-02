@@ -7,7 +7,12 @@ class FeedScreen extends StatefulWidget {
 
     Widget build(BuildContext context) {
         return Scaffold(
-        appBar: AppBar(title: Text("Feed")),
+        appBar: AppBar(title: Text("Feed",
+            style: TextStyle(color: Colors.yellow),
+        ),
+            centerTitle: true,
+            backgroundColor: Colors.black,
+        ),
         body: Center(child: Text(
             "Community Feed",
             style: TextStyle(fontSize: 24, color: Colors.yellow[700])),
