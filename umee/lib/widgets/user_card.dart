@@ -17,7 +17,7 @@ class UserCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),     // matching radius
                 boxShadow: [                                 // subtle drop-shadow
                     BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         spreadRadius: 2,
                         blurRadius: 6,
                         offset: const Offset(0, 4),
