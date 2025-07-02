@@ -39,7 +39,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             color: Colors.grey[200],
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(widget.user.imageUrl),
+                backgroundImage: AssetImage(widget.user.imageUrl),
               ),
               title: Text(widget.user.name),
               subtitle: Text(widget.user.bio),
@@ -73,7 +73,9 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                       color: isMe ? Colors.blue[200] : Colors.grey[300],
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Text(m['text']!),
+                    child: Text(m['text']!,
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 );
               },
@@ -95,8 +97,10 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
-                    decoration: const InputDecoration.collapsed(
+                    decoration: InputDecoration.collapsed(
                       hintText: 'Type a message',
+                      filled: true,
+                      fillColor: Colors.grey[200],
                     ),
                     onSubmitted: (_) => _send(),
                   ),

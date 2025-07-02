@@ -2,11 +2,13 @@ class UserProfile {
     final String name;
     final String bio;
     final String imageUrl;
+    final List<String>? communities;
 
     UserProfile({
         required this.name,
         required this.bio,
         required this.imageUrl,
+        this.communities,
     });
 }
 
@@ -14,31 +16,34 @@ final List<UserProfile> mockMatchers = [
     UserProfile(
         name: "Anya",
         bio: "Love beaches, sunsets and reading books",
-        imageUrl: 'https://randomuser.me/api/portraits/women/64.jpg',
+        imageUrl: 'assets/images/woman1.jpg',
+        communities: ['Goldie\'s Gym', 'Sam\'s Book Club'],
     ),
     UserProfile(
         name: "Peter",
         bio: "I'm a history nerd who loves weightlifting",
-        imageUrl: 'https://randomuser.me/api/portraits/men/72.jpg',
+        imageUrl: 'assets/images/man1.jpg',
+        communities: ['Anytime Fitness Center']
     ),
     UserProfile(
         name: "Ashley",
         bio: "Gamer | F1 Fan | Weeb",
-        imageUrl: 'https://randomuser.me/api/portraits/women/37.jpg',
+        imageUrl: 'assets/images/woman2.jpg',
     ),
     UserProfile(
         name: "Trent",
         bio: "I'm a professional cricket and soccer player. Hmu if you want to play",
-        imageUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+        imageUrl: 'assets/images/man2.jpg',
     ),
     UserProfile(
         name: "Hermione",
         bio: "Never let me stay away from my daily coffee and code",
-        imageUrl: 'https://randomuser.me/api/portraits/women/22.jpg',
+        imageUrl: 'assets/images/woman3.jpg',
+        communities: ['Anytime Fitness Center'],
     ),
     UserProfile(
         name: "Gwen",
         bio: "Big fan of CAS and Hozier",
-        imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+        imageUrl: 'assets/images/woman4.jpg',
     ),
 ];

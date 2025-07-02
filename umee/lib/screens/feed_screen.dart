@@ -20,6 +20,7 @@ class _FeedScreenState extends State<FeedScreen> {
         'Anytime Fitness Center',
         'Goldie\'s Gym',
         'Sam\'s Book Club',
+
     ];
 
     final Map<String, List<Map<String, String>>> _allMessages = {

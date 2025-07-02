@@ -47,7 +47,20 @@ class _MatchScreenState extends State<MatchScreen> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            appBar: AppBar(title: const Text("Find Friends")),
+            appBar: AppBar(backgroundColor: Colors.black12,
+                leadingWidth: 128,
+            leading: Padding(
+                padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+                'assets/images/umeelogo.png',
+                width: 48,
+                height: 48,
+                fit: BoxFit.contain,
+            ),
+            ),
+                title: const Text("Find Friends!", style: TextStyle(color: Colors.white),),
+                centerTitle: true,
+            ),
             body: SafeArea(
                 child: _isDeckEmpty ? _buildEmpty() : _buildSwiper(context),
             ),
@@ -91,8 +104,9 @@ class _MatchScreenState extends State<MatchScreen> {
                             key: _deckKey,
                             controller: _controller,
                             cardsCount: _cards.length,
-                            numberOfCardsDisplayed: _cards.length < 3 ? _cards.length : 3,
-                            backCardOffset: const Offset(30, 30),
+                            // numberOfCardsDisplayed: _cards.length < 3 ? _cards.length : 3,
+                            numberOfCardsDisplayed: 1   ,
+                            backCardOffset: Offset.zero,
                             padding: EdgeInsets.zero,
                             cardBuilder: (ctx, i, _, __) => _cards[i],
                             onSwipe: (prevIndex, _, direction) {

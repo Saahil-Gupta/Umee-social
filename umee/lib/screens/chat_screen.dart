@@ -19,7 +19,7 @@ class ChatScreen extends StatelessWidget {
                     child: Text(
                         'No matches yet!\nSwipe to find friends.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                 ),
             );
@@ -27,7 +27,7 @@ class ChatScreen extends StatelessWidget {
 
         // Otherwise, list out your matches
         return Scaffold(
-            appBar: AppBar(title: const Text('Chats')),
+            appBar: AppBar(title: const Text('Chats'), centerTitle: true,),
             body: ListView.separated(
                 itemCount: matches.length,
                 separatorBuilder: (_, __) => const Divider(height: 1),
@@ -35,7 +35,7 @@ class ChatScreen extends StatelessWidget {
                     final user = matches[i];
                     return ListTile(
                         leading: CircleAvatar(
-                            backgroundImage: NetworkImage(user.imageUrl),
+                            backgroundImage: AssetImage(user.imageUrl),
                         ),
                         title: Text(user.name,
                         style: TextStyle(color: Colors.white,

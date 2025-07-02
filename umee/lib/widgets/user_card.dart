@@ -32,7 +32,7 @@ class UserCard extends StatelessWidget {
                             width: double.infinity,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(user.imageUrl),
+                                    image: AssetImage(user.imageUrl),
                                     fit: BoxFit.cover,
                                 ),
                             ),
