@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/profile_screen.dart';
 import 'screens/match_screen.dart';
 import 'screens/chat_screen.dart';
-import 'screens/feed_screen.dart'; 
+import 'screens/feed_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +18,8 @@ class _UmeeAppState extends State<MyApp> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    MatchScreen(),
     ProfileScreen(),
+    MatchScreen(),
     ChatScreen(),
     FeedScreen(),
   ];
@@ -45,24 +45,28 @@ class _UmeeAppState extends State<MyApp> {
           backgroundColor: const Color(0x2A2A2A),
           currentIndex: _selectedIndex,
           onTap: _onTabTapped,
-          selectedItemColor: Colors.purple,
-          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.yellow,
+          unselectedItemColor: Colors.white,
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Match',
-            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
+              backgroundColor: Colors.black,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Match',
+              backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
-              label: 'Chat',
+              label: 'Chats',
+              backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.article),
               label: 'Feed',
+              backgroundColor: Colors.black,
             ),
           ],
         ),

@@ -31,12 +31,17 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.user.name)),
+      appBar: AppBar(title: Text(widget.user.name,
+      style: TextStyle(color: Colors.white),
+      ),
+        backgroundColor: Colors.black,
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
       body: Column(
         children: [
           // ▼ Info Bar (tappable to view profile)
           Material(
-            color: Colors.grey[200],
+            color: Colors.grey[300],
             child: ListTile(
               leading: CircleAvatar(
                 backgroundImage: AssetImage(widget.user.imageUrl),

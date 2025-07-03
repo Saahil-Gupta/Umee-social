@@ -32,7 +32,12 @@ class ChatScreen extends StatelessWidget {
 
         // Otherwise, list out your matches
         return Scaffold(
-            appBar: AppBar(title: const Text('Chats'), centerTitle: true,),
+            appBar: AppBar(title: const Text('Chats',
+            style: TextStyle(color: Colors.yellow),
+            ),
+                centerTitle: true,
+            backgroundColor: Colors.black,
+            ),
             body: ListView.separated(
                 itemCount: matches.length,
                 separatorBuilder: (_, __) => const Divider(

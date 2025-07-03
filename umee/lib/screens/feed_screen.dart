@@ -7,16 +7,16 @@ class FeedScreen extends StatefulWidget {
 
     Widget build(BuildContext context) {
         return Scaffold(
-        appBar: AppBar(title: Text("Feed",
-            style: TextStyle(color: Colors.yellow),
-        ),
-            centerTitle: true,
-            backgroundColor: Colors.black,
-        ),
-        body: Center(child: Text(
-            "Community Feed",
-            style: TextStyle(fontSize: 24, color: Colors.yellow[700])),
-        ));
+            appBar: AppBar(title: Text("Feed",
+                style: TextStyle(color: Colors.yellow),
+            ),
+                centerTitle: true,
+                backgroundColor: Colors.black,
+            ),
+            body: Center(child: Text(
+                "Community Feed",
+                style: TextStyle(fontSize: 24, color: Colors.yellow[700])),
+            ));
     }
 }
 
@@ -89,8 +89,8 @@ class _FeedScreenState extends State<FeedScreen> {
         final text = _textController.text.trim();
         if (text.isEmpty) return;
         setState(() {
-          _messages.insert(0, {'author': 'You', 'text': text});
-          _textController.clear();
+            _messages.insert(0, {'author': 'You', 'text': text});
+            _textController.clear();
         });
     }
 
@@ -103,8 +103,8 @@ class _FeedScreenState extends State<FeedScreen> {
     void _onCommunityChanged(String? community) {
         if (community == null) return;
         setState(() {
-          _selectedCommunity = community;
-          _messages = List.from(_allMessages[community]!);
+            _selectedCommunity = community;
+            _messages = List.from(_allMessages[community]!);
         });
     }
 
@@ -112,11 +112,13 @@ class _FeedScreenState extends State<FeedScreen> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-                title: Text('$_selectedCommunity'),
+                title: Text('$_selectedCommunity',
+                    style: TextStyle(color: Colors.yellow),),
                 centerTitle: true,
+                backgroundColor: Colors.black,
                 actions: [
                     PopupMenuButton<String>(
-                        icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+                        icon: const Icon(Icons.arrow_drop_down, color: Colors.yellow),
                         onSelected: _onCommunityChanged,
                         itemBuilder: (ctx) => _communities.map((c) {
                             return PopupMenuItem(value: c, child: Text(c));
@@ -173,14 +175,14 @@ class _FeedScreenState extends State<FeedScreen> {
                                                                 Row(
                                                                     children: [
                                                                         Text(msg['author']!,
-                                                                        style: const TextStyle(
-                                                                            fontWeight: FontWeight.bold
-                                                                        ),
+                                                                            style: const TextStyle(
+                                                                                fontWeight: FontWeight.bold
+                                                                            ),
                                                                         ),
                                                                         if (isAnnouncement) ...[
                                                                             const SizedBox(width: 4),
                                                                             const Icon(Icons.verified,
-                                                                            size: 18, color: Colors.blue),
+                                                                                size: 18, color: Colors.blue),
                                                                         ],
                                                                     ],
                                                                 ),
@@ -210,23 +212,23 @@ class _FeedScreenState extends State<FeedScreen> {
                                 ],
                             ),
                             child: Row(
-                            children: [
-                                IconButton(onPressed: _attachFile,
-                                icon: const Icon(Icons.add_circle_outline),
-                            ),
-                            Expanded(
-                                child: TextField(
-                                    controller: _textController,
-                                    decoration: const InputDecoration(
-                                        hintText: 'Write a message....',
-                                        border: InputBorder.none,
+                                children: [
+                                    IconButton(onPressed: _attachFile,
+                                        icon: const Icon(Icons.add_circle_outline),
                                     ),
-                                    onSubmitted: (_) => _sendMessage(),
-                               ),
-                            ),
-                            IconButton(onPressed: _sendMessage, icon: const Icon(Icons.send),
-                                      ),
-                            ],
+                                    Expanded(
+                                        child: TextField(
+                                            controller: _textController,
+                                            decoration: const InputDecoration(
+                                                hintText: 'Write a message....',
+                                                border: InputBorder.none,
+                                            ),
+                                            onSubmitted: (_) => _sendMessage(),
+                                        ),
+                                    ),
+                                    IconButton(onPressed: _sendMessage, icon: const Icon(Icons.send),
+                                    ),
+                                ],
                             ),
                         ),
                     ]
