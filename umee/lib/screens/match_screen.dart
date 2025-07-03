@@ -25,16 +25,11 @@ class _MatchScreenState extends State<MatchScreen> {
     }
 
     void _resetDeck() {
-        // 1) clear previous matches
         matchedUsers.clear();
-        // 2) initialize available users from mockUsers
         _availableUsers = List.from(mockMatchers);
-        // 3) reset controller and key
         _controller = CardSwiperController();
         _deckKey = UniqueKey();
-        // 4) build card widgets list
         _buildCards();
-        // 5) update empty state
         setState(() {
             _isDeckEmpty = _availableUsers.isEmpty;
         });

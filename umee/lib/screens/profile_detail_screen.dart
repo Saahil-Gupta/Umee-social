@@ -61,7 +61,7 @@ class ProfileDetailScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple.shade700,
+                    color: Colors.yellow,
                   ),
                 ),
               ),
